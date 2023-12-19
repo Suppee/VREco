@@ -29,6 +29,8 @@ public class PlotManager : MonoBehaviour
 
     public GameObject plot1ref;
 
+
+
     private void Awake()
     {
         _instance = this;
