@@ -61,11 +61,15 @@ public class PlotManager : MonoBehaviour
     void OnMessageArrived(string msg)
     {
         Debug.Log("Message arrived: " + msg);
-        if (msg == "On")
+        if (msg == "7A:96:30:1B")
         {
             plot1ref = Instantiate(forest, plot1);
         }
-        else if (msg == "Off")
+        else if (msg == "A3:1E:8D:2F")
+        {
+            plot1ref = Instantiate(field, plot1);
+        }
+        else if (msg == "No Card")
         {
             Destroy(plot1ref);
         }
