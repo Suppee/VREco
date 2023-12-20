@@ -15,7 +15,7 @@ public class co2Counter : MonoBehaviour
     private void Start()
     {
         co2Count = 0;
-        co2DisplayText.text = (co2Count.ToString() + " Nitrogen Units per " + countInterval + " seconds");
+        co2DisplayText.text = (co2Count.ToString() + " Kvælstof enheder per " + countInterval + " sekunder");
         StartCoroutine(DisplayCO2Value(countInterval));
     }
 
@@ -31,7 +31,7 @@ public class co2Counter : MonoBehaviour
     {
         co2Count = 0;
         yield return new WaitForSeconds(interval);
-        co2DisplayText.text = (co2Count.ToString() + " Nitrogen Units per " + countInterval + " seconds");
+        co2DisplayText.text = (co2Count.ToString() + " Kvælstof enheder per " + countInterval + " sekunder");
         StartCoroutine(DisplayCO2Value(countInterval));
     }
 }
