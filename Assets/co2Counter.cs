@@ -6,20 +6,24 @@ using UnityEngine.UI;
 
 public class co2Counter : MonoBehaviour
 {
-    public int co2Count;
-    public float countInterval;
     public TextMeshProUGUI co2DisplayText;
+
+    public float co2Count;
+    public float countInterval;
+    private CarbonScript riverPolScript;
 
     private void Start()
     {
+        co2Count = 0;
         co2DisplayText.text = (co2Count.ToString() + " CO2 per " + countInterval + " seconds");
         StartCoroutine(DisplayCO2Value(countInterval));
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        riverPolScript = other.GetComponent<CarbonScript>();
         if(other.gameObject.CompareTag("CarbonDioxide")) {
-            co2Count++;
+            co2Count += riverPolScript.carbonValue;
         }
     }
 

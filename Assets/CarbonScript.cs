@@ -7,9 +7,49 @@ public class CarbonScript : MonoBehaviour
 {
     public float carbonValue;
 
+    Color lerpedColor = Color.white;
+    Renderer renderer;
+
+    // 0 - 60 value color
+
+
+    [SerializeField]
+    private GameObject vaad;
+    [SerializeField]
+    private GameObject kvaeg;
+    [SerializeField]
+    private GameObject forest;
+
+
+    public Color greenColor;
+    public Color blueColor;
+    public Color redColor;
+
+    private void Awake()
+    {
+        carbonValue = 12f;
+        renderer = GetComponent<Renderer>();
+        greenColor = forest.GetComponent<Renderer>().sharedMaterial.color;
+        blueColor = vaad.GetComponent<Renderer>().sharedMaterial.color;
+        redColor = kvaeg.GetComponent<Renderer>().sharedMaterial.color;
+    }
     private void Start()
     {
-        carbonValue = 5.0f;
+        
+    }
+
+    void Update()
+    {
+        if(carbonValue <= 12)
+        {
+            lerpedColor = Color.Lerp(Color.green, blueColor, Mathf.InverseLerp(0, 12, carbonValue));
+        }
+        else if(carbonValue <= 24 && carbonValue > 12)
+        {
+            lerpedColor = Color.Lerp(redColor, blueColor, Mathf.InverseLerp(24, 12, carbonValue));
+        }
+        
+        renderer.material.color = lerpedColor;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -17,7 +57,6 @@ public class CarbonScript : MonoBehaviour
         if (other.gameObject.CompareTag("Forest"))
         {
             carbonValue -= 2f;
-            Debug.Log(carbonValue);
         }
         else if(other.gameObject.CompareTag("Mark"))
         {

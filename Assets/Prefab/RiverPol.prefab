@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f49cc9cd37aeb8f4685fca0719ad0eb4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -170,3 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56eac08676be9446bb5e06077250a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carbonValue: 0
+  vaad: {fileID: 4719375872609753151, guid: 273985ac5e766594084ff50a384e7d74, type: 3}
+  kvaeg: {fileID: 4594737148357294662, guid: 0ccfa10d150085c4cb8f7d908e2b35b2, type: 3}
+  forest: {fileID: 6183149456771852727, guid: 3c008f5c3bfe82d4a8324e898adc76f5, type: 3}
+  greenColor: {r: 0, g: 0, b: 0, a: 0}
+  blueColor: {r: 0, g: 0, b: 0, a: 0}
+  redColor: {r: 0, g: 0, b: 0, a: 0}

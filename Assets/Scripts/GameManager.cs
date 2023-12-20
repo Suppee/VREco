@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
     }
+
+    // Global Variables
+    public float co2PerTimeUnit;
+
     // Start is called before the first frame update
     void Start()
     {
