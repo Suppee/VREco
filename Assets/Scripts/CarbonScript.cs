@@ -47,10 +47,7 @@ public class CarbonScript : MonoBehaviour
         {
             lerpedColor = Color.Lerp(redColor, blueColor, Mathf.InverseLerp(24, 12, carbonValue));
         }
-        else
-        {
-            lerpedColor = redColor;
-        }
+
 
         renderer.material.color = Color.Lerp(renderer.material.color, lerpedColor, Time.deltaTime * interpolationSpeed);
     }
