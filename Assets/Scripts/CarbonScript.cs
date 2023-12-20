@@ -13,17 +13,16 @@ public class CarbonScript : MonoBehaviour
     // 0 - 60 value color
 
 
-    [SerializeField]
-    private GameObject vaad;
-    [SerializeField]
-    private GameObject kvaeg;
-    [SerializeField]
-    private GameObject forest;
+    [SerializeField] private GameObject vaad;
+    [SerializeField] private GameObject kvaeg;
+    [SerializeField] private GameObject forest;
 
 
     public Color greenColor;
     public Color blueColor;
     public Color redColor;
+
+    [SerializeField] public float interpolationSpeed = 1.0f;
 
     private void Awake()
     {
@@ -48,8 +47,12 @@ public class CarbonScript : MonoBehaviour
         {
             lerpedColor = Color.Lerp(redColor, blueColor, Mathf.InverseLerp(24, 12, carbonValue));
         }
-        
-        renderer.material.color = lerpedColor;
+        else
+        {
+            lerpedColor = redColor;
+        }
+
+        renderer.material.color = Color.Lerp(renderer.material.color, lerpedColor, Time.deltaTime * interpolationSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
