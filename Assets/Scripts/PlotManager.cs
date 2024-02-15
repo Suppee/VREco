@@ -29,6 +29,8 @@ public class PlotManager : MonoBehaviour
 
     public GameObject plot1ref;
 
+    public string curMsg;
+
 
 
     private void Awake()
@@ -37,44 +39,42 @@ public class PlotManager : MonoBehaviour
     }
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // ARDITY CODE 
     // Invoked when a connect/disconnect event occurs. The parameter 'success'
     // will be 'true' upon connection, and 'false' upon disconnection or
     // failure to connect.
-    void OnConnectionEvent(bool success)
-    {
-        if (success)
-            Debug.Log("Connection established");
-        else
-            Debug.Log("Connection attempt failed or disconnection detected");
-    }
+   //void OnConnectionEvent(bool success)
+   //{
+   //    if (success)
+   //        Debug.Log("Connection established");
+   //    else
+   //        Debug.Log("Connection attempt failed or disconnection detected");
+   //}
 
 
     public void PlotMessage(string msg)
     {
+        if (msg == curMsg) return;
         Debug.Log("Message arrived: " + msg);
         if (msg == "7A:96:30:1B")
         {
+            if (plot1ref != null) Destroy(plot1ref);
             plot1ref = Instantiate(forest, plot1);
+        }
+        else if (msg == "91:18:6C:24")
+        {
+            if(plot1ref != null) Destroy(plot1ref);
+            plot1ref = Instantiate(field, plot1);
         }
         else if (msg == "A3:1E:8D:2F")
         {
-            plot1ref = Instantiate(field, plot1);
+            if (plot1ref != null) Destroy(plot1ref);
+            plot1ref = Instantiate(wetlands, plot1);
         }
         else if (msg == "No Card")
         {
             Destroy(plot1ref);
         }
+        curMsg = msg;
     }
 }

@@ -70,5 +70,9 @@ public class CarbonScript : MonoBehaviour
         {
             carbonValue += 2f;
         }
+        else if (other.gameObject.CompareTag("Finish"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

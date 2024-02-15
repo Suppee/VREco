@@ -22,7 +22,7 @@ public class IoT : MonoBehaviour
         else
         {
             Debug.Log("Connect to Online Server");
-            socket = SocketIo.establishSocketConnection("ws://34.88.170.131:8080");
+            socket = SocketIo.establishSocketConnection("ws://35.228.129.246:8080");
         }
 
         //Connect to server
