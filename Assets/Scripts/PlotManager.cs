@@ -60,7 +60,8 @@ public class PlotManager : MonoBehaviour
             Debug.Log("Connection attempt failed or disconnection detected");
     }
 
-    void OnMessageArrived(string msg)
+
+    public void PlotMessage(string msg)
     {
         Debug.Log("Message arrived: " + msg);
         if (msg == "7A:96:30:1B")

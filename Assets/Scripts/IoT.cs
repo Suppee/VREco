@@ -54,7 +54,7 @@ public class IoT : MonoBehaviour
     void Update()
     {
         
-        //PlotManager.Instance.PlotMessage(currentPotValue);
+        PlotManager.Instance.PlotMessage(currentPotValue);
         //Rotate 3D Object
     }
 }
