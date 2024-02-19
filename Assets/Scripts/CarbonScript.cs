@@ -17,6 +17,11 @@ public class CarbonScript : MonoBehaviour
     [SerializeField] private GameObject kvaeg;
     [SerializeField] private GameObject forest;
 
+    public float forestValue;
+    public float vaadomraadeValue;
+    public float kvaegholdValue;
+    public float markValue;
+
 
     public Color greenColor;
     public Color blueColor;
@@ -47,6 +52,10 @@ public class CarbonScript : MonoBehaviour
         {
             lerpedColor = Color.Lerp(redColor, blueColor, Mathf.InverseLerp(24, 12, carbonValue));
         }
+        else
+        {
+            lerpedColor = redColor;
+        }
 
 
         renderer.material.color = Color.Lerp(renderer.material.color, lerpedColor, Time.deltaTime * interpolationSpeed);
@@ -56,19 +65,19 @@ public class CarbonScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Forest"))
         {
-            carbonValue -= 2f;
+            carbonValue -= forestValue;
         }
         else if(other.gameObject.CompareTag("Mark"))
         {
-            carbonValue += 3f;
+            carbonValue += markValue;
         }
         else if(other.gameObject.CompareTag("Vaadomraade"))
         {
-            carbonValue -= 3f;
+            carbonValue -= vaadomraadeValue;
         }
         else if(other.gameObject.CompareTag("Kvaeghold"))
         {
-            carbonValue += 2f;
+            carbonValue += kvaegholdValue;
         }
         else if (other.gameObject.CompareTag("Finish"))
         {
